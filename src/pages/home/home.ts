@@ -25,6 +25,8 @@ export class HomePage {
     });
 
     platform.ready().then(() => {
+      this.sdkPluginHandlerService.initializeSDK('0020003747', '917B-C741-4A28-8FB2');
+
       if (!!window['isCordovaReady']) {
         onDeviceReady();
       } else {
@@ -32,7 +34,6 @@ export class HomePage {
       }
 
       function onDeviceReady() {
-        this.sdkPluginHandlerService.initializeSDK('0020003747', '917B-C741-4A28-8FB2');
         let data = JSON.parse(this.sdkPluginHandlerService.getUserInfo());
         this._userName = data.username;
       }
@@ -40,19 +41,10 @@ export class HomePage {
     });
   }
 
-  private showAlert(title: string, message: string): void {
-    let alert = this.alertController.create({
-      title: title,
-      subTitle: message,
-      buttons: ["close"]
-    });
-    alert.present(alert);
-  }
-
-  ngOnInit() {
+  ngAfterContentInit() {
     //TODO:injecter service provider sdk et recuperer le nom de l'utilisateur
-    let data = JSON.parse(this.sdkPluginHandlerService.getUserInfo());
-    this._userName = data.username;
+    // let data = JSON.parse(this.sdkPluginHandlerService.getUserInfo());
+    // this._userName = data.username;
   }
 
   /**
