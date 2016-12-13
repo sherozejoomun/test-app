@@ -1,0 +1,33 @@
+page-home {
+.iam-icon {
+          background: url('../../img/IAMicon.png') transparent center center no-repeat;
+          background-size: 50%;
+          bottom: 6px;
+          left: 0;
+          position: absolute;
+          top: 6px;
+          width: 60px;
+          z-index: 1;
+        }
+
+
+.rules-icon {
+         width: 50%;
+        }        
+
+.cardSecurity{
+  margin-top: 20%;
+  margin-bottom: 20%;
+  padding-top: 10%;
+  padding-bottom: 10%;
+}
+
+.buttonFooter{
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    z-index: 10;
+    display: block;
+    width: 100%;
+}
+}

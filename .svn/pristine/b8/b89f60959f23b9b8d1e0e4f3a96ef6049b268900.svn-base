@@ -1,0 +1,69 @@
+<ion-header>
+  <ion-navbar>
+    <div class="iam-icon" (click)="showVersion()"></div>
+    <ion-title class="text-left">
+      IAM
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+
+<ion-content padding>
+  <div class="row">
+    <div class="col-md-4 offset-md-4">
+      <p>Bonjour {{_userName}}, votre mot de passe expire dans X jours</p>
+
+      <form (ngSubmit)="submitChangePwd()" [formGroup]="_userForm">
+
+        <div class="form-group">
+          <ion-item>
+            <ion-label for="oldPassword" id="login-label" floating>Ancien mot de passe</ion-label>
+            <ion-input id="oldPassword" class="form-control" formControlName="oldPassword"></ion-input>
+          </ion-item>          
+        </div>
+
+        <div class="form-group">
+          <ion-item>
+            <ion-label for="newPassword" floating>Nouveau mot de passe</ion-label>
+            <ion-input id="newPassword" class="form-control" type="password" formControlName="newPassword"></ion-input>
+          </ion-item>
+        </div>
+
+        <div class="form-group">
+          <ion-item>
+            <ion-label for="newPassword2" floating>Nouveau mot de passe</ion-label>
+            <ion-input id="newPassword2" class="form-control" type="password" formControlName="newPassword2"></ion-input>
+          </ion-item>
+        </div>
+
+        <ion-card class="cardSecurity">
+          <ion-grid>
+            <ion-row>
+              <ion-col width-20 center><img src={{getRulesImageUrl()}}></ion-col>
+              <ion-col width-80>
+                <ion-grid>
+                  <ion-row wrap>
+                    <h1>Règles de sécurité !</h1>
+                  </ion-row>
+                  <ion-row>votre mdp doit contenir ....</ion-row>
+                  <ion-row><i>example</i></ion-row>
+                </ion-grid>
+              </ion-col>
+            </ion-row>
+          </ion-grid>
+        </ion-card>
+
+
+
+        <ion-grid class="buttonFooter">
+          <ion-row>
+            <button ion-button class="btn btn-primary" type="submit" full>OK</button>
+          </ion-row>
+          <ion-row>
+            <button ion-button class="btn btn-primary" type="submit" full>Mot de passe perdu</button>
+          </ion-row>
+        </ion-grid>
+
+      </form>
+    </div>
+  </div>
+</ion-content>
